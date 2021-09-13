@@ -1,21 +1,28 @@
 import React from 'react'
+import s from './Message.module.css'
 
 export type MessagePropsType = {
-    avatar: any
+    avatar: string
     name: string
     message: string
     time: string
 }
 
-export function Message(props: MessagePropsType) {
+function Message(props: MessagePropsType) {
     return (
-            <div className={'message'}>
-                <h2>{props.avatar}</h2>
-                <div>{props.name}</div>
-                <div>{props.message}</div>
-                <div>{props.time}</div>
+        <div className={s.message}>
+            <img src={props.avatar} alt={'avatar'} className={s.avatar}/>
+
+            <div className={s.angle}/>
+            <div className={s.content}>
+                <div className={s.name}>{props.name}</div>
+                <div className={s.text}>{props.message}</div>
+                <div className={s.time}>{props.time}</div>
+            </div>
         </div>
     )
 }
+
+export default Message;
 
 
